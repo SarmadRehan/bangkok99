@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+/* Palette: from the truck itself (their Instagram profile photo): saffron-yellow body #f5b800, the
+   rust-red sign (deepened to chili red #b8321f, as the brief asks for deep red) and its yellow
+   letters. A small basil green is the brief's "touch of green" (Sarmad's choice). Saffron is a fill
+   with dark text (char on saffron 9.3:1); chili red takes white text (6.0:1). Text uses char, tamarind,
+   chili or basil-ink, all 4.5:1 or better on their backgrounds. */
+@theme {
+  --color-rice: #fff8e6;
+  --color-saffron: #f5b800;
+  --color-saffron-light: #ffd84d;
+  --color-saffron-soft: #fff3cf;
+  --color-chili: #b8321f;
+  --color-chili-dark: #8f2416;
+  --color-char: #2b1a12;
+  --color-tamarind: #6b4a3a;
+  --color-basil: #3f7d3a;
+  --color-basil-ink: #2f6a2b;
+  --color-basil-soft: #e7f2df;
+}
+
+/* `inline` so utilities reference the next/font variables directly rather than resolving them on :root. */
+@theme inline {
+  --font-display: var(--font-baloo), ui-rounded, system-ui, sans-serif;
+  --font-sans: var(--font-figtree), system-ui, sans-serif;
+  --font-thai: var(--font-mitr), var(--font-baloo), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+  color-scheme: light;
+}
+
+body {
+  background: var(--color-rice);
+  color: var(--color-char);
+}
+
+/* Street-stall awning: chili and saffron stripes with a scalloped edge, one SVG tile repeated. */
+.awning {
+  height: 26px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='26' viewBox='0 0 56 26'%3E%3Cpath d='M0 0h28v12a14 14 0 0 1-28 0z' fill='%23b8321f'/%3E%3Cpath d='M28 0h28v12a14 14 0 0 1-28 0z' fill='%23f5b800'/%3E%3C/svg%3E") repeat-x left top / 56px 26px;
+}
+
+.pop {
+  box-shadow:
+    0 1px 2px rgb(43 26 18 / 0.06),
+    0 18px 38px -18px rgb(143 36 22 / 0.35);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
